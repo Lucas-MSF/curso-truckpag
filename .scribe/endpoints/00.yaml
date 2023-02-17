@@ -1,0 +1,50 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listagem de Usuarios'
+      description: 'Retorna todos os usuarios cadastrados'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1,
+              "name": "Lucas-msf",
+              "email": "lucas@email.com",
+              "created_at": "2023-02-17T19:23:05.000000Z",
+              "updated_at": "2023-02-17T19:24:27.000000Z"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer gEeaP14k5hv8fDV6c36aZbd'
+    controller: null
+    method: null
+    route: null
+    custom: []
