@@ -22,6 +22,6 @@ return new class extends Migration
  
     public function down()
     {
-        Schema::dropIfExists('conta_bancarias');
+        Schema::dropIfExists('conta_bancaria');
     }
 };
