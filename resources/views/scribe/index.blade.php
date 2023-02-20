@@ -76,6 +76,25 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-fornecedor" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="fornecedor">
+                    <a href="#fornecedor">fornecedor</a>
+                </li>
+                                    <ul id="tocify-subheader-fornecedor" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="fornecedor-GETapi-fornecedor">
+                                <a href="#fornecedor-GETapi-fornecedor">Listar Fornecedores</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="fornecedor-POSTapi-fornecedor">
+                                <a href="#fornecedor-POSTapi-fornecedor">Criar Fornecedor</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="fornecedor-GETapi-fornecedor--fornecedor_id-">
+                                <a href="#fornecedor-GETapi-fornecedor--fornecedor_id-">Retorna Fornecedor</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="fornecedor-PUTapi-fornecedor--fornecedor_id-">
+                                <a href="#fornecedor-PUTapi-fornecedor--fornecedor_id-">Atualizar Fornecedor</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -85,7 +104,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 17, 2023</li>
+        <li>Last updated: February 19, 2023</li>
     </ul>
 </div>
 
@@ -101,7 +120,7 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
@@ -235,6 +254,693 @@ fetch(url, {
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="fornecedor">fornecedor</h1>
+
+    
+
+                                <h2 id="fornecedor-GETapi-fornecedor">Listar Fornecedores</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>retorna todos os fornecedores do banco</p>
+
+<span id="example-requests-GETapi-fornecedor">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/fornecedor" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/fornecedor"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-fornecedor">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;fornecedor_id&quot;: 1,
+            &quot;nome&quot;: &quot;Melody Fritsch&quot;,
+            &quot;endereco&quot;: &quot;2652 Rath Avenue\nLake Bertramland, CT 55149-5788&quot;,
+            &quot;telefone&quot;: &quot;561.970.6152&quot;,
+            &quot;email&quot;: &quot;rthompson@gmail.com&quot;,
+            &quot;created_at&quot;: &quot;2023-02-18T15:03:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-18T15:03:56.000000Z&quot;
+        },
+        {
+            &quot;fornecedor_id&quot;: 2,
+            &quot;nome&quot;: &quot;Leilani Gleichner MD&quot;,
+            &quot;endereco&quot;: &quot;836 Katrine Locks\nWest Charley, ND 84776&quot;,
+            &quot;telefone&quot;: &quot;1-850-363-7890&quot;,
+            &quot;email&quot;: &quot;ahmed.leffler@schowalter.org&quot;,
+            &quot;created_at&quot;: &quot;2023-02-18T15:03:56.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-18T15:03:56.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-fornecedor" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-fornecedor"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-fornecedor" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-fornecedor" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-fornecedor"></code></pre>
+</span>
+<form id="form-GETapi-fornecedor" data-method="GET"
+      data-path="api/fornecedor"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-fornecedor', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-fornecedor"
+                    onclick="tryItOut('GETapi-fornecedor');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-fornecedor"
+                    onclick="cancelTryOut('GETapi-fornecedor');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-fornecedor" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/fornecedor</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-fornecedor"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-fornecedor"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-fornecedor"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="fornecedor-POSTapi-fornecedor">Criar Fornecedor</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>cria um fornecedor conforme os dados inseridos</p>
+
+<span id="example-requests-POSTapi-fornecedor">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/fornecedor" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"nome\": \"Fornecedor de agua\",
+    \"endereco\": \"rua x, numero y, bairro z\",
+    \"email\": \"fornecedor@teste.com\",
+    \"telefone\": \"(11) 11111111111\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/fornecedor"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "Fornecedor de agua",
+    "endereco": "rua x, numero y, bairro z",
+    "email": "fornecedor@teste.com",
+    "telefone": "(11) 11111111111"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-fornecedor">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;fornecedor_id&quot;: 11,
+        &quot;nome&quot;: &quot;nome teste&quot;,
+        &quot;endereco&quot;: &quot;endereco teste&quot;,
+        &quot;telefone&quot;: &quot;telefone teste&quot;,
+        &quot;email&quot;: null,
+        &quot;created_at&quot;: &quot;2023-02-19T18:07:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-19T18:07:58.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-fornecedor" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-fornecedor"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-fornecedor" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-fornecedor" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-fornecedor"></code></pre>
+</span>
+<form id="form-POSTapi-fornecedor" data-method="POST"
+      data-path="api/fornecedor"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-fornecedor', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-fornecedor"
+                    onclick="tryItOut('POSTapi-fornecedor');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-fornecedor"
+                    onclick="cancelTryOut('POSTapi-fornecedor');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-fornecedor" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/fornecedor</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-fornecedor"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-fornecedor"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-fornecedor"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nome</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="nome"                data-endpoint="POSTapi-fornecedor"
+               value="Fornecedor de agua"
+               data-component="body">
+    <br>
+<p>nome do fornecedor. Must not be greater than 255 characters. Example: <code>Fornecedor de agua</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>endereco</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="endereco"                data-endpoint="POSTapi-fornecedor"
+               value="rua x, numero y, bairro z"
+               data-component="body">
+    <br>
+<p>endereco do fornecedor. Must not be greater than 255 characters. Example: <code>rua x, numero y, bairro z</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi-fornecedor"
+               value="fornecedor@teste.com"
+               data-component="body">
+    <br>
+<p>email do fornecedor. Must not be greater than 255 characters. Example: <code>fornecedor@teste.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telefone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="telefone"                data-endpoint="POSTapi-fornecedor"
+               value="(11) 11111111111"
+               data-component="body">
+    <br>
+<p>telefone do fornecedor. Must not be greater than 255 characters. Example: <code>(11) 11111111111</code></p>
+        </div>
+        </form>
+
+                    <h2 id="fornecedor-GETapi-fornecedor--fornecedor_id-">Retorna Fornecedor</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>retorna um fornecedor com base no id passado</p>
+
+<span id="example-requests-GETapi-fornecedor--fornecedor_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/fornecedor/3" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/fornecedor/3"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-fornecedor--fornecedor_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;fornecedor_id&quot;: 11,
+        &quot;nome&quot;: &quot;nome teste&quot;,
+        &quot;endereco&quot;: &quot;endereco teste&quot;,
+        &quot;telefone&quot;: &quot;telefone teste&quot;,
+        &quot;email&quot;: null,
+        &quot;created_at&quot;: &quot;2023-02-19T18:07:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-19T18:07:58.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-fornecedor--fornecedor_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-fornecedor--fornecedor_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-fornecedor--fornecedor_id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-fornecedor--fornecedor_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-fornecedor--fornecedor_id-"></code></pre>
+</span>
+<form id="form-GETapi-fornecedor--fornecedor_id-" data-method="GET"
+      data-path="api/fornecedor/{fornecedor_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-fornecedor--fornecedor_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-fornecedor--fornecedor_id-"
+                    onclick="tryItOut('GETapi-fornecedor--fornecedor_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-fornecedor--fornecedor_id-"
+                    onclick="cancelTryOut('GETapi-fornecedor--fornecedor_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-fornecedor--fornecedor_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/fornecedor/{fornecedor_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-fornecedor--fornecedor_id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-fornecedor--fornecedor_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-fornecedor--fornecedor_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>fornecedor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="fornecedor_id"                data-endpoint="GETapi-fornecedor--fornecedor_id-"
+               value="3"
+               data-component="url">
+    <br>
+<p>The ID of the fornecedor. Example: <code>3</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="fornecedor-PUTapi-fornecedor--fornecedor_id-">Atualizar Fornecedor</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Atualiza os dados de um fornecedor conforme os dados inseridos</p>
+
+<span id="example-requests-PUTapi-fornecedor--fornecedor_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/fornecedor/3" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"nome\": \"Fornecedor de agua\",
+    \"endereco\": \"rua x, numero y, bairro z\",
+    \"email\": \"fornecedor@teste.com\",
+    \"telefone\": \"(11) 11111111111\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/fornecedor/3"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "Fornecedor de agua",
+    "endereco": "rua x, numero y, bairro z",
+    "email": "fornecedor@teste.com",
+    "telefone": "(11) 11111111111"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-fornecedor--fornecedor_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;fornecedor_id&quot;: 11,
+        &quot;nome&quot;: &quot;nome teste&quot;,
+        &quot;endereco&quot;: &quot;endereco teste&quot;,
+        &quot;telefone&quot;: &quot;telefone teste&quot;,
+        &quot;email&quot;: null,
+        &quot;created_at&quot;: &quot;2023-02-19T18:07:58.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-19T18:07:58.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-fornecedor--fornecedor_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-fornecedor--fornecedor_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-fornecedor--fornecedor_id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-fornecedor--fornecedor_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-fornecedor--fornecedor_id-"></code></pre>
+</span>
+<form id="form-PUTapi-fornecedor--fornecedor_id-" data-method="PUT"
+      data-path="api/fornecedor/{fornecedor_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-fornecedor--fornecedor_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-fornecedor--fornecedor_id-"
+                    onclick="tryItOut('PUTapi-fornecedor--fornecedor_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-fornecedor--fornecedor_id-"
+                    onclick="cancelTryOut('PUTapi-fornecedor--fornecedor_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-fornecedor--fornecedor_id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/fornecedor/{fornecedor_id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/fornecedor/{fornecedor_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>fornecedor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="fornecedor_id"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="3"
+               data-component="url">
+    <br>
+<p>The ID of the fornecedor. Example: <code>3</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nome</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="nome"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="Fornecedor de agua"
+               data-component="body">
+    <br>
+<p>nome do fornecedor. Must not be greater than 255 characters. Example: <code>Fornecedor de agua</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>endereco</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="endereco"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="rua x, numero y, bairro z"
+               data-component="body">
+    <br>
+<p>endereco do fornecedor. Must not be greater than 255 characters. Example: <code>rua x, numero y, bairro z</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="fornecedor@teste.com"
+               data-component="body">
+    <br>
+<p>email do fornecedor. Must not be greater than 255 characters. Example: <code>fornecedor@teste.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>telefone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="telefone"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="(11) 11111111111"
+               data-component="body">
+    <br>
+<p>telefone do fornecedor. Must not be greater than 255 characters. Example: <code>(11) 11111111111</code></p>
+        </div>
+        </form>
 
             
 

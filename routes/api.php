@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FornecedorController;
 
 /**
  * Listagem de Usuarios
@@ -16,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function () {
     return User::all();
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('fornecedor', FornecedorController::class);
+
 });
