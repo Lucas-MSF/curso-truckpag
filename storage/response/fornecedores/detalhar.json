@@ -1,0 +1,11 @@
+{
+	"data": {
+		"fornecedor_id": 11,
+		"nome": "nome teste",
+		"endereco": "endereco teste",
+		"telefone": "telefone teste",
+		"email": null,
+		"created_at": "2023-02-19T18:07:58.000000Z",
+		"updated_at": "2023-02-19T18:07:58.000000Z"
+	}
+}

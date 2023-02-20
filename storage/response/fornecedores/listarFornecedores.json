@@ -1,0 +1,22 @@
+{
+	"data": [
+		{
+			"fornecedor_id": 1,
+			"nome": "Melody Fritsch",
+			"endereco": "2652 Rath Avenue\nLake Bertramland, CT 55149-5788",
+			"telefone": "561.970.6152",
+			"email": "rthompson@gmail.com",
+			"created_at": "2023-02-18T15:03:56.000000Z",
+			"updated_at": "2023-02-18T15:03:56.000000Z"
+		},
+		{
+			"fornecedor_id": 2,
+			"nome": "Leilani Gleichner MD",
+			"endereco": "836 Katrine Locks\nWest Charley, ND 84776",
+			"telefone": "1-850-363-7890",
+			"email": "ahmed.leffler@schowalter.org",
+			"created_at": "2023-02-18T15:03:56.000000Z",
+			"updated_at": "2023-02-18T15:03:56.000000Z"
+		}
+    ]
+}
