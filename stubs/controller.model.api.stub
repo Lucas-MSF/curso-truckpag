@@ -11,11 +11,11 @@ use {{ rootNamespace }}Http\Resources\{{ model }} as Resources;
 class {{ class }} extends Controller
 {
 /**
-     * Listar {{ model }} 
+     * Listar {{ modelVariable }} 
      * 
-     * retorna todos os {{ model }} do banco
+     * retorna todos os {{ modelVariable }} do banco
      * @group {{ model }}
-     * @responseFile response/{{ model }}/listar{{ model }}.json
+     * @responseFile response/{{ modelVariable }}/listar.json
      */
     public function index()
     {
@@ -23,11 +23,11 @@ class {{ class }} extends Controller
     }
 
     /**
-     * Criar {{ model }} 
+     * Criar {{ modelVariable }} 
      * 
-     * cria um {{ model }} conforme os dados inseridos
+     * cria um {{ modelVariable }} conforme os dados inseridos
      * @group {{ model }}
-     * @responseFile 201 response/{{ model }}/detalhar.json
+     * @responseFile 201 response/{{ modelVariable }}/detalhar.json
      */
     public function store({{ storeRequest }} $request)
     {
@@ -36,11 +36,11 @@ class {{ class }} extends Controller
     }
 
     /**
-     * Retorna {{ model }} 
+     * Retorna {{ modelVariable }} 
      * 
-     * retorna um {{ model }} com base no id passado
+     * retorna um {{ modelVariable }} com base no id passado
      * @group {{ model }}
-     * @responseFile response/{{ model }}/detalhar.json
+     * @responseFile response/{{ modelVariable }}/detalhar.json
      */
     public function show(Model ${{ modelVariable }})
     {
@@ -49,11 +49,11 @@ class {{ class }} extends Controller
     }
 
     /**
-     * Atualizar {{ model }} 
+     * Atualizar {{ modelVariable }} 
      * 
-     * Atualiza os dados de um {{ model }} conforme os dados inseridos
+     * Atualiza os dados de um {{ modelVariable }} conforme os dados inseridos
      * @group {{ model }}
-     * @responseFile 200 response/{{ model }}/detalhar.json
+     * @responseFile 200 response/{{ modelVariable }}/detalhar.json
      */
 
     public function update({{ updateRequest }} $request, Model ${{ modelVariable }})
@@ -63,10 +63,10 @@ class {{ class }} extends Controller
     }
 
      /**
-     * Excluir {{ model }} 
+     * Excluir {{ modelVariable }} 
      * 
-     * exclui os dados de um {{ model }} 
-     * @urlParam {{ model }} integer required O valor do {{ model }}_id     
+     * exclui os dados de um {{ modelVariable }} 
+     * @urlParam {{ modelVariable }} integer required O valor do {{ modelVariable }}_id     
      * @group {{ model }}
      * @response
      */
