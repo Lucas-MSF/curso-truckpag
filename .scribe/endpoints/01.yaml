@@ -58,7 +58,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DZc1E6ehkbdv4a5gP8V63fa'
+      - 'Bearer hZeDk3gPacEvdfV81566ba4'
     controller: null
     method: null
     route: null
@@ -141,7 +141,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gvZfe8acdDa3kbPE4hV1566'
+      - 'Bearer DeP66abZ5gEfV3c1vh84akd'
     controller: null
     method: null
     route: null
@@ -200,7 +200,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gD6Eda5k8hVb4PcZ1vea36f'
+      - 'Bearer VfPh8k6Ea1Dc6v5d4Zbaeg3'
     controller: null
     method: null
     route: null
@@ -292,7 +292,63 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g6ZeaD5c6f3d48abk1vPVEh'
+      - 'Bearer Ed51cP3bDZ84hfV66vkegaa'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/fornecedor/{fornecedor_id}'
+    metadata:
+      groupName: fornecedor
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Excluir Fornecedor'
+      description: 'exclui os dados de um fornecedor'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      fornecedor_id:
+        name: fornecedor_id
+        description: 'The ID of the fornecedor.'
+        required: true
+        example: 3
+        type: integer
+        custom: []
+      fornecedor:
+        name: fornecedor
+        description: 'O valor do fornecedor_id'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      fornecedor_id: 3
+      fornecedor: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer fhavk14d3gP65e6aDcZV8bE'
     controller: null
     method: null
     route: null

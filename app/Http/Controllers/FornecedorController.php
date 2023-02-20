@@ -66,7 +66,7 @@ class FornecedorController extends Controller
      * exclui os dados de um fornecedor 
      * @urlParam fornecedor integer required O valor do fornecedor_id     
      * @group fornecedor
-     * @responseFile 200
+     * @response
      */
     public function destroy(Model $fornecedor)
     {

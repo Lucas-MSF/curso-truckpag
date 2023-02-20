@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TesteController;
 use App\Http\Controllers\FornecedorController;
 
 /**
