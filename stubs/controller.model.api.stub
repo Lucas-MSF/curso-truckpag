@@ -5,7 +5,7 @@ namespace {{ namespace }};
 use {{ namespacedModel }} as Model;
 use {{ rootNamespace }}Http\Controllers\Controller;
 use {{ namespacedRequests }}
-use {{ rootNamespace }}Http\Resources\{{ model }} as Resources;
+use {{ rootNamespace }}Http\Resources\{{ model }}Resources as Resources;
 
 
 class {{ class }} extends Controller
@@ -39,6 +39,7 @@ class {{ class }} extends Controller
      * Retorna {{ modelVariable }} 
      * 
      * retorna um {{ modelVariable }} com base no id passado
+     * @urlParam {{ modelVariable }} integer required O valor do {{ modelVariable }}_id     
      * @group {{ model }}
      * @responseFile response/{{ modelVariable }}/detalhar.json
      */
@@ -52,6 +53,7 @@ class {{ class }} extends Controller
      * Atualizar {{ modelVariable }} 
      * 
      * Atualiza os dados de um {{ modelVariable }} conforme os dados inseridos
+     * @urlParam {{ modelVariable }} integer required O valor do {{ modelVariable }}_id     
      * @group {{ model }}
      * @responseFile 200 response/{{ modelVariable }}/detalhar.json
      */
