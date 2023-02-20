@@ -18,6 +18,10 @@ class Fornecedor extends Model
         'endereco'
     ];
 
+    public function contasPagar()
+    {
+        return $this->hasMany(ContaPagar::class, 'fornecedor_id','fornecedor_id');
+    }
 
 
 }

@@ -18,6 +18,7 @@ class ContaPagar extends Model
         'valor'
     ];
     protected  $casts = [
+        'fornecedor_id' => 'integer',
         'valor' => 'decimal:2'
     ];
 }

@@ -22,6 +22,7 @@ class FornecedorResources extends JsonResource
             'email' => $this->email,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'contas_pagar' => ContaPagarResources::collection( $this->contasPagar) ,
         ];
     }
 }

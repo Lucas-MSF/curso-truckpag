@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fornecedor as Model;
 use App\Http\Requests\StoreFornecedorRequest;
 use App\Http\Requests\UpdateFornecedorRequest;
 use App\Http\Resources\FornecedorResources as Resources;
-use App\Models\Fornecedor as Model;
+use Dominio\Fornecedor\Cadastrar;
 
 class FornecedorController extends Controller
 {
+
+    private Cadastrar $cadastrar;
+
+    public function __construct(Cadastrar $cadastrar)
+    {
+        $this->cadastrar = $cadastrar;
+    }
     /**
      * Listar Fornecedores 
      * 
@@ -21,10 +29,10 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        return Resources::collection(Model::paginate());
+        return Resources::collection(Model::with('contasPagar')->paginate());
     }
 
-     /**
+    /**
      * Criar Fornecedor 
      * 
      * cria um fornecedor conforme os dados inseridos
@@ -35,7 +43,7 @@ class FornecedorController extends Controller
      */
     public function store(StoreFornecedorRequest $request)
     {
-        $novo = Model::create($request->all());
+        $novo = $this->cadastrar->cadastrar($request);
         return new Resources($novo);
     }
 
