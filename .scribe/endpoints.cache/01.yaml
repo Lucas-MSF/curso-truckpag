@@ -60,7 +60,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8geadfk4Zv61EV5P3ahDbc6'
+      - 'Bearer g53hcdvEaePk6aZ84D61fbV'
     controller: null
     method: null
     route: null
@@ -143,7 +143,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6ka5Va1EZ3Dgh6c4dPfevb8'
+      - 'Bearer aVZ4d1cfk56vE368bPDaegh'
     controller: null
     method: null
     route: null
@@ -177,12 +177,12 @@ endpoints:
         name: fornecedor
         description: 'O valor do fornecedor_id'
         required: true
-        example: 1
+        example: 9
         type: integer
         custom: []
     cleanUrlParameters:
       fornecedor_id: 1
-      fornecedor: 1
+      fornecedor: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -210,7 +210,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DP1gdch36Zf6VabevkE8a45'
+      - 'Bearer 64aE1ah3ceZbfVdDPk85v6g'
     controller: null
     method: null
     route: null
@@ -245,12 +245,12 @@ endpoints:
         name: fornecedor
         description: 'O valor do fornecedor_id'
         required: true
-        example: 19
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
       fornecedor_id: 1
-      fornecedor: 19
+      fornecedor: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -310,7 +310,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer V5v3ac61ek4dbP68aEgZfDh'
+      - 'Bearer Eefcgh6Vkb651DadaZP8v43'
     controller: null
     method: null
     route: null
@@ -344,12 +344,12 @@ endpoints:
         name: fornecedor
         description: 'O valor do fornecedor_id'
         required: true
-        example: 11
+        example: 6
         type: integer
         custom: []
     cleanUrlParameters:
       fornecedor_id: 1
-      fornecedor: 11
+      fornecedor: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -366,7 +366,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gZPc864evh56kafbdDVE31a'
+      - 'Bearer gc54P3e6ZdDfka8v1ahEV6b'
     controller: null
     method: null
     route: null

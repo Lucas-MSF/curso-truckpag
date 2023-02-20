@@ -58,7 +58,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer P851EaD6cv3fkaedgZhV6b4'
+      - 'Bearer 1fEZ56VbDkv8gh64ea3cPad'
     controller: null
     method: null
     route: null
@@ -141,7 +141,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 1kcZ6v8bg3f6V5ahEeDda4P'
+      - 'Bearer b1fg43kdh5VDaEP66eavc8Z'
     controller: null
     method: null
     route: null
@@ -168,19 +168,19 @@ endpoints:
         name: id
         description: 'The ID of the conta banco.'
         required: true
-        example: aut
+        example: eligendi
         type: string
         custom: []
       conta_bancaria_id:
         name: conta_bancaria_id
         description: 'O valor do conta_bancaria_id'
         required: true
-        example: 8
+        example: 15
         type: integer
         custom: []
     cleanUrlParameters:
-      id: aut
-      conta_bancaria_id: 8
+      id: eligendi
+      conta_bancaria_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -208,7 +208,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer gEev4cVaDak8b61f6hPd53Z'
+      - 'Bearer 45k8ca66adE1PVbefZg3Dvh'
     controller: null
     method: null
     route: null
@@ -236,7 +236,7 @@ endpoints:
         name: id
         description: 'The ID of the conta banco.'
         required: true
-        example: repellendus
+        example: praesentium
         type: string
         custom: []
       conta_bancaria_id:
@@ -247,7 +247,7 @@ endpoints:
         type: integer
         custom: []
     cleanUrlParameters:
-      id: repellendus
+      id: praesentium
       conta_bancaria_id: 10
     queryParameters: []
     cleanQueryParameters: []
@@ -308,7 +308,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6bPaa5fce1Dv4d3gZV68khE'
+      - 'Bearer 5PVkD6caf3eZahg46Eb1vd8'
     controller: null
     method: null
     route: null
@@ -335,19 +335,19 @@ endpoints:
         name: id
         description: 'The ID of the conta banco.'
         required: true
-        example: sit
+        example: consequatur
         type: string
         custom: []
       conta_bancaria_id:
         name: conta_bancaria_id
         description: 'O valor do conta_bancaria_id'
         required: true
-        example: 7
+        example: 15
         type: integer
         custom: []
     cleanUrlParameters:
-      id: sit
-      conta_bancaria_id: 7
+      id: consequatur
+      conta_bancaria_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -364,7 +364,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer k81hV6a5e3Eg46adDbZfvPc'
+      - 'Bearer Pb1cgVe8f4Ead5hk6D63aZv'
     controller: null
     method: null
     route: null

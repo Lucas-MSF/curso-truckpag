@@ -1,0 +1,334 @@
+name: 'Conta Pagar'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/conta-pagar
+    metadata:
+      groupName: 'Conta Pagar'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar contas a pagar'
+      description: 'retorna todas as contas a pagar do banco'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          	"data": [
+          		{
+          			"conta_pagar_id": 1,
+          			"fornecedor_id": "10",
+          			"descricao": "Conta de luz",
+          			"valor": "137.38",
+          			"created_at": "2023-02-20T20:18:16.000000Z",
+          			"updated_at": "2023-02-20T20:18:16.000000Z"
+          		},
+          		{
+          			"conta_pagar_id": 2,
+          			"fornecedor_id": "5",
+          			"descricao": "Conta de agua",
+          			"valor": "152.53",
+          			"created_at": "2023-02-20T20:18:16.000000Z",
+          			"updated_at": "2023-02-20T20:18:16.000000Z"
+          		}
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Ehbg6DcZPe83dv6aa514Vfk'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/conta-pagar
+    metadata:
+      groupName: 'Conta Pagar'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Criar conta a pagar'
+      description: 'cria um conta a pagar conforme os dados inseridos'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      fornecedor_id:
+        name: fornecedor_id
+        description: 'id do fornecedor.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      descricao:
+        name: descricao
+        description: 'Descrição da conta. O campo value não pode ser superior a 255 caracteres.'
+        required: true
+        example: 'conta de luz'
+        type: string
+        custom: []
+      valor:
+        name: valor
+        description: 'valor da conta.'
+        required: true
+        example: 105.6
+        type: number
+        custom: []
+    cleanBodyParameters:
+      fornecedor_id: 1
+      descricao: 'conta de luz'
+      valor: 105.6
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+          	"data": {
+          		"conta_pagar_id": 1,
+          		"fornecedor_id": "10",
+          		"descricao": "Conta de luz",
+          		"valor": "137.38",
+          		"created_at": "2023-02-20T20:18:16.000000Z",
+          		"updated_at": "2023-02-20T20:18:16.000000Z"
+          	}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Zfav3cE154DgVadh6ePb6k8'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/conta-pagar/{id}'
+    metadata:
+      groupName: 'Conta Pagar'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retorna conta a Pagar'
+      description: 'retorna uma conta a pagar com base no id passado'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the conta pagar.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          	"data": {
+          		"conta_pagar_id": 1,
+          		"fornecedor_id": "10",
+          		"descricao": "Conta de luz",
+          		"valor": "137.38",
+          		"created_at": "2023-02-20T20:18:16.000000Z",
+          		"updated_at": "2023-02-20T20:18:16.000000Z"
+          	}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer v68fe56hDE14ZabakdPg3cV'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/conta-pagar/{id}'
+    metadata:
+      groupName: 'Conta Pagar'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar conta a pagar'
+      description: 'Atualiza os dados de uma conta a pagar conforme os dados inseridos'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the conta pagar.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      fornecedor_id:
+        name: fornecedor_id
+        description: 'id do fornecedor.'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+      descricao:
+        name: descricao
+        description: 'Descrição da conta. O campo value não pode ser superior a 255 caracteres.'
+        required: false
+        example: 'conta de luz'
+        type: string
+        custom: []
+      valor:
+        name: valor
+        description: 'valor da conta.'
+        required: false
+        example: 105.6
+        type: number
+        custom: []
+    cleanBodyParameters:
+      fornecedor_id: 1
+      descricao: 'conta de luz'
+      valor: 105.6
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          	"data": {
+          		"conta_pagar_id": 1,
+          		"fornecedor_id": "10",
+          		"descricao": "Conta de luz",
+          		"valor": "137.38",
+          		"created_at": "2023-02-20T20:18:16.000000Z",
+          		"updated_at": "2023-02-20T20:18:16.000000Z"
+          	}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer eaV6EcZfdhkaPD18gv3b465'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/conta-pagar/{id}'
+    metadata:
+      groupName: 'Conta Pagar'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Excluir conta a pagar'
+      description: 'exclui os dados de uma conta a pagar'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the conta pagar.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      contaPagar:
+        name: contaPagar
+        description: 'O valor do contaPagar_id'
+        required: true
+        example: 2
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+      contaPagar: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer avZfb184hDPdV3agc6k56Ee'
+    controller: null
+    method: null
+    route: null
+    custom: []
