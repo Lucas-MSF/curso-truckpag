@@ -11,7 +11,7 @@ use App\Http\Controllers\FornecedorController;
  * 
  * Retorna todos os usuarios cadastrados
  * 
- * 
+ * @group Usuarios
  * @responseFile response/ListarUsuarios.json
  */
 
