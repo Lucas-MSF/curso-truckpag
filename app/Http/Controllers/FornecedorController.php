@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFornecedorRequest;
 use App\Http\Requests\UpdateFornecedorRequest;
-use App\Http\Resources\Fornecedor as Resources;
+use App\Http\Resources\FornecedorResources as Resources;
 use App\Models\Fornecedor as Model;
 
 class FornecedorController extends Controller
