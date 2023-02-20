@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class {{ class }} extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $table = 'tabela';
     protected $primaryKey = 'tabela';
     protected $fillable = [];
