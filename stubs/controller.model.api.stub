@@ -2,64 +2,76 @@
 
 namespace {{ namespace }};
 
-use {{ namespacedModel }};
+use {{ namespacedModel }} as Model;
 use {{ rootNamespace }}Http\Controllers\Controller;
 use {{ namespacedRequests }}
+use {{ rootNamespace }}Http\Resources\{{ model }} as Resources;
+
 
 class {{ class }} extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+/**
+     * Listar {{ model }} 
+     * 
+     * retorna todos os {{ model }} do banco
+     * @group {{ model }}
+     * @responseFile response/{{ model }}/listar{{ model }}.json
      */
     public function index()
     {
-        //
+        return Resources::collection(Model::paginate());
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \{{ namespacedStoreRequest }}  $request
-     * @return \Illuminate\Http\Response
+     * Criar {{ model }} 
+     * 
+     * cria um {{ model }} conforme os dados inseridos
+     * @group {{ model }}
+     * @responseFile 201 response/{{ model }}/detalhar.json
      */
     public function store({{ storeRequest }} $request)
     {
-        //
+        $novo = Model::create($request->all());
+        return new Resources($novo);
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
+     * Retorna {{ model }} 
+     * 
+     * retorna um {{ model }} com base no id passado
+     * @group {{ model }}
+     * @responseFile response/{{ model }}/detalhar.json
      */
-    public function show({{ model }} ${{ modelVariable }})
+    public function show(Model ${{ modelVariable }})
     {
-        //
+        return new Resources(${{ modelVariable }});
+        
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \{{ namespacedUpdateRequest }}  $request
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
+     * Atualizar {{ model }} 
+     * 
+     * Atualiza os dados de um {{ model }} conforme os dados inseridos
+     * @group {{ model }}
+     * @responseFile 200 response/{{ model }}/detalhar.json
      */
-    public function update({{ updateRequest }} $request, {{ model }} ${{ modelVariable }})
+
+    public function update({{ updateRequest }} $request, Model ${{ modelVariable }})
     {
-        //
+        ${{ modelVariable }}->update($request->all());
+        return new Resources(${{ modelVariable }});
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
+     /**
+     * Excluir {{ model }} 
+     * 
+     * exclui os dados de um {{ model }} 
+     * @urlParam {{ model }} integer required O valor do {{ model }}_id     
+     * @group {{ model }}
+     * @response
      */
-    public function destroy({{ model }} ${{ modelVariable }})
+    public function destroy(Model ${{ modelVariable }})
     {
-        //
+        ${{ modelVariable }}->delete();
     }
 }
