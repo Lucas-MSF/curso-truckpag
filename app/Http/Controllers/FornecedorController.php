@@ -12,8 +12,11 @@ class FornecedorController extends Controller
     /**
      * Listar Fornecedores 
      * 
+     * 
      * retorna todos os fornecedores do banco
-     * @group fornecedor
+     * 
+     * @group Fornecedor
+     * 
      * @responseFile response/fornecedores/listarFornecedores.json
      */
     public function index()
@@ -25,7 +28,9 @@ class FornecedorController extends Controller
      * Criar Fornecedor 
      * 
      * cria um fornecedor conforme os dados inseridos
-     * @group fornecedor
+     * 
+     * @group Fornecedor
+     * 
      * @responseFile 201 response/fornecedores/detalhar.json
      */
     public function store(StoreFornecedorRequest $request)
@@ -38,7 +43,11 @@ class FornecedorController extends Controller
      * Retorna Fornecedor 
      * 
      * retorna um fornecedor com base no id passado
-     * @group fornecedor
+     * 
+     * @group Fornecedor
+     * 
+     * @urlParam fornecedor integer required O valor do fornecedor_id     
+     * 
      * @responseFile response/fornecedores/detalhar.json
      */
     public function show(Model $fornecedor)
@@ -50,7 +59,11 @@ class FornecedorController extends Controller
      * Atualizar Fornecedor 
      * 
      * Atualiza os dados de um fornecedor conforme os dados inseridos
-     * @group fornecedor
+     * 
+     * @group Fornecedor
+     * 
+     * @urlParam fornecedor integer required O valor do fornecedor_id     
+     * 
      * @responseFile 200 response/fornecedores/detalhar.json
      */
     public function update(UpdateFornecedorRequest $request, Model $fornecedor)
@@ -64,8 +77,11 @@ class FornecedorController extends Controller
      * Excluir Fornecedor 
      * 
      * exclui os dados de um fornecedor 
+     * 
      * @urlParam fornecedor integer required O valor do fornecedor_id     
-     * @group fornecedor
+     * 
+     * @group Fornecedor
+     * 
      * @response
      */
     public function destroy(Model $fornecedor)

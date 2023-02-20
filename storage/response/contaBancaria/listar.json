@@ -1,0 +1,22 @@
+{
+	"data": [
+		{
+			"conta_bancaria_id": 1,
+			"banco_nome": "Randal Gorczany",
+			"agencia_numero": "6545",
+			"conta_numero": "137405",
+			"saldo_inicial": "931.59",
+			"created_at": "2023-02-20T18:00:00.000000Z",
+			"updated_at": "2023-02-20T18:00:00.000000Z"
+		},
+		{
+			"conta_bancaria_id": 2,
+			"banco_nome": "Travis Schneider",
+			"agencia_numero": "9855",
+			"conta_numero": "329099",
+			"saldo_inicial": "555.56",
+			"created_at": "2023-02-20T18:00:00.000000Z",
+			"updated_at": "2023-02-20T18:00:00.000000Z"
+		}
+    ]
+}

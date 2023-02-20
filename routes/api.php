@@ -2,8 +2,8 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TesteController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\ContaBancariaController;
 
 /**
  * Listagem de Usuarios
@@ -21,5 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('fornecedor', FornecedorController::class);
+    Route::apiResource('conta-banco', ContaBancariaController::class);
 
 });

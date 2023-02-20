@@ -1,0 +1,11 @@
+{
+	"data": {
+		"conta_bancaria_id": 1,
+		"banco_nome": "eius",
+		"agencia_numero": "9629",
+		"conta_numero": "849426",
+		"saldo_inicial": 984.91,
+		"created_at": "2023-02-20T18:38:16.000000Z",
+		"updated_at": "2023-02-20T18:38:16.000000Z"
+	}
+}
