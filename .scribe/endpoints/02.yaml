@@ -1,0 +1,371 @@
+name: 'Conta Bancaria'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/conta-banco
+    metadata:
+      groupName: 'Conta Bancaria'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Listar conta bancaria'
+      description: 'retorna todos os conta bancaria do banco'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          	"data": [
+          		{
+          			"conta_bancaria_id": 1,
+          			"banco_nome": "Randal Gorczany",
+          			"agencia_numero": "6545",
+          			"conta_numero": "137405",
+          			"saldo_inicial": "931.59",
+          			"created_at": "2023-02-20T18:00:00.000000Z",
+          			"updated_at": "2023-02-20T18:00:00.000000Z"
+          		},
+          		{
+          			"conta_bancaria_id": 2,
+          			"banco_nome": "Travis Schneider",
+          			"agencia_numero": "9855",
+          			"conta_numero": "329099",
+          			"saldo_inicial": "555.56",
+          			"created_at": "2023-02-20T18:00:00.000000Z",
+          			"updated_at": "2023-02-20T18:00:00.000000Z"
+          		}
+              ]
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer P851EaD6cv3fkaedgZhV6b4'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/conta-banco
+    metadata:
+      groupName: 'Conta Bancaria'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Criar conta bancaria'
+      description: 'cria um conta bancaria conforme os dados inseridos'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      banco_nome:
+        name: banco_nome
+        description: 'nome do banco. O campo value não pode ser superior a 255 caracteres.'
+        required: true
+        example: Itau
+        type: string
+        custom: []
+      agencia_numero:
+        name: agencia_numero
+        description: 'numero da agencia. O campo value não pode ser superior a 10 caracteres.'
+        required: true
+        example: '0927'
+        type: string
+        custom: []
+      conta_numero:
+        name: conta_numero
+        description: 'numero da conta. O campo value não pode ser superior a 10 caracteres.'
+        required: true
+        example: '509428'
+        type: string
+        custom: []
+      saldo_inicial:
+        name: saldo_inicial
+        description: 'saldo inicial da conta.'
+        required: true
+        example: 25.28
+        type: number
+        custom: []
+    cleanBodyParameters:
+      banco_nome: Itau
+      agencia_numero: '0927'
+      conta_numero: '509428'
+      saldo_inicial: 25.28
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+          	"data": {
+          		"conta_bancaria_id": 1,
+          		"banco_nome": "eius",
+          		"agencia_numero": "9629",
+          		"conta_numero": "849426",
+          		"saldo_inicial": 984.91,
+          		"created_at": "2023-02-20T18:38:16.000000Z",
+          		"updated_at": "2023-02-20T18:38:16.000000Z"
+          	}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1kcZ6v8bg3f6V5ahEeDda4P'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/conta-banco/{id}'
+    metadata:
+      groupName: 'Conta Bancaria'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retorna conta bancaria'
+      description: 'retorna um conta bancaria com base no id passado'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the conta banco.'
+        required: true
+        example: aut
+        type: string
+        custom: []
+      conta_bancaria_id:
+        name: conta_bancaria_id
+        description: 'O valor do conta_bancaria_id'
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: aut
+      conta_bancaria_id: 8
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          	"data": {
+          		"conta_bancaria_id": 1,
+          		"banco_nome": "eius",
+          		"agencia_numero": "9629",
+          		"conta_numero": "849426",
+          		"saldo_inicial": 984.91,
+          		"created_at": "2023-02-20T18:38:16.000000Z",
+          		"updated_at": "2023-02-20T18:38:16.000000Z"
+          	}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer gEev4cVaDak8b61f6hPd53Z'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/conta-banco/{id}'
+    metadata:
+      groupName: 'Conta Bancaria'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Atualizar conta bancaria'
+      description: 'Atualiza os dados de um conta bancaria conforme os dados inseridos'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the conta banco.'
+        required: true
+        example: repellendus
+        type: string
+        custom: []
+      conta_bancaria_id:
+        name: conta_bancaria_id
+        description: 'O valor do conta_bancaria_id'
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: repellendus
+      conta_bancaria_id: 10
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      banco_nome:
+        name: banco_nome
+        description: 'nome do banco. O campo value não pode ser superior a 255 caracteres.'
+        required: false
+        example: Itau
+        type: string
+        custom: []
+      agencia_numero:
+        name: agencia_numero
+        description: 'numero da agencia. O campo value não pode ser superior a 10 caracteres.'
+        required: false
+        example: '0927'
+        type: string
+        custom: []
+      conta_numero:
+        name: conta_numero
+        description: 'numero da conta. O campo value não pode ser superior a 10 caracteres.'
+        required: false
+        example: '509428'
+        type: string
+        custom: []
+      saldo_inicial:
+        name: saldo_inicial
+        description: 'saldo inicial da conta.'
+        required: false
+        example: 25.28
+        type: number
+        custom: []
+    cleanBodyParameters:
+      banco_nome: Itau
+      agencia_numero: '0927'
+      conta_numero: '509428'
+      saldo_inicial: 25.28
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          	"data": {
+          		"conta_bancaria_id": 1,
+          		"banco_nome": "eius",
+          		"agencia_numero": "9629",
+          		"conta_numero": "849426",
+          		"saldo_inicial": 984.91,
+          		"created_at": "2023-02-20T18:38:16.000000Z",
+          		"updated_at": "2023-02-20T18:38:16.000000Z"
+          	}
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6bPaa5fce1Dv4d3gZV68khE'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/conta-banco/{id}'
+    metadata:
+      groupName: 'Conta Bancaria'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Excluir conta bancaria'
+      description: 'exclui os dados de um conta bancaria'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the conta banco.'
+        required: true
+        example: sit
+        type: string
+        custom: []
+      conta_bancaria_id:
+        name: conta_bancaria_id
+        description: 'O valor do conta_bancaria_id'
+        required: true
+        example: 7
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: sit
+      conta_bancaria_id: 7
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer k81hV6a5e3Eg46adDbZfvPc'
+    controller: null
+    method: null
+    route: null
+    custom: []

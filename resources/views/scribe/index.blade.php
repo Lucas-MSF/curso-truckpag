@@ -66,19 +66,31 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
-                    <ul id="tocify-header-endpoints" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                    <ul id="tocify-header-conta-bancaria" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="conta-bancaria">
+                    <a href="#conta-bancaria">Conta Bancaria</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
-                                <a href="#endpoints-GETapi-user">Listagem de Usuarios</a>
+                                    <ul id="tocify-subheader-conta-bancaria" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="conta-bancaria-GETapi-conta-banco">
+                                <a href="#conta-bancaria-GETapi-conta-banco">Listar conta bancaria</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="conta-bancaria-POSTapi-conta-banco">
+                                <a href="#conta-bancaria-POSTapi-conta-banco">Criar conta bancaria</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="conta-bancaria-GETapi-conta-banco--id-">
+                                <a href="#conta-bancaria-GETapi-conta-banco--id-">Retorna conta bancaria</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="conta-bancaria-PUTapi-conta-banco--id-">
+                                <a href="#conta-bancaria-PUTapi-conta-banco--id-">Atualizar conta bancaria</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="conta-bancaria-DELETEapi-conta-banco--id-">
+                                <a href="#conta-bancaria-DELETEapi-conta-banco--id-">Excluir conta bancaria</a>
                             </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-fornecedor" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="fornecedor">
-                    <a href="#fornecedor">fornecedor</a>
+                    <a href="#fornecedor">Fornecedor</a>
                 </li>
                                     <ul id="tocify-subheader-fornecedor" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="fornecedor-GETapi-fornecedor">
@@ -95,6 +107,16 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="fornecedor-DELETEapi-fornecedor--fornecedor_id-">
                                 <a href="#fornecedor-DELETEapi-fornecedor--fornecedor_id-">Excluir Fornecedor</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-usuarios" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="usuarios">
+                    <a href="#usuarios">Usuarios</a>
+                </li>
+                                    <ul id="tocify-subheader-usuarios" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="usuarios-GETapi-user">
+                                <a href="#usuarios-GETapi-user">Listagem de Usuarios</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -127,25 +149,25 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="conta-bancaria">Conta Bancaria</h1>
 
     
 
-                                <h2 id="endpoints-GETapi-user">Listagem de Usuarios</h2>
+                                <h2 id="conta-bancaria-GETapi-conta-banco">Listar conta bancaria</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-<p>Retorna todos os usuarios cadastrados</p>
+<p>retorna todos os conta bancaria do banco</p>
 
-<span id="example-requests-GETapi-user">
+<span id="example-requests-GETapi-conta-banco">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/user" \
+    --get "http://localhost/api/conta-banco" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -153,7 +175,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user"
+    "http://localhost/api/conta-banco"
 );
 
 const headers = {
@@ -169,58 +191,73 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-user">
+<span id="example-responses-GETapi-conta-banco">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;name&quot;: &quot;Lucas-msf&quot;,
-    &quot;email&quot;: &quot;lucas@email.com&quot;,
-    &quot;created_at&quot;: &quot;2023-02-17T19:23:05.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2023-02-17T19:24:27.000000Z&quot;
+    &quot;data&quot;: [
+        {
+            &quot;conta_bancaria_id&quot;: 1,
+            &quot;banco_nome&quot;: &quot;Randal Gorczany&quot;,
+            &quot;agencia_numero&quot;: &quot;6545&quot;,
+            &quot;conta_numero&quot;: &quot;137405&quot;,
+            &quot;saldo_inicial&quot;: &quot;931.59&quot;,
+            &quot;created_at&quot;: &quot;2023-02-20T18:00:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-20T18:00:00.000000Z&quot;
+        },
+        {
+            &quot;conta_bancaria_id&quot;: 2,
+            &quot;banco_nome&quot;: &quot;Travis Schneider&quot;,
+            &quot;agencia_numero&quot;: &quot;9855&quot;,
+            &quot;conta_numero&quot;: &quot;329099&quot;,
+            &quot;saldo_inicial&quot;: &quot;555.56&quot;,
+            &quot;created_at&quot;: &quot;2023-02-20T18:00:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-02-20T18:00:00.000000Z&quot;
+        }
+    ]
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-user" hidden>
+<span id="execution-results-GETapi-conta-banco" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-user"></span>:
+                id="execution-response-status-GETapi-conta-banco"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-user" style="max-height: 400px;"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-conta-banco" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-user" hidden>
+<span id="execution-error-GETapi-conta-banco" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-user"></code></pre>
+    <pre><code id="execution-error-message-GETapi-conta-banco"></code></pre>
 </span>
-<form id="form-GETapi-user" data-method="GET"
-      data-path="api/user"
+<form id="form-GETapi-conta-banco" data-method="GET"
+      data-path="api/conta-banco"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-conta-banco', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-user"
-                    onclick="tryItOut('GETapi-user');">Try it out ⚡
+                    id="btn-tryout-GETapi-conta-banco"
+                    onclick="tryItOut('GETapi-conta-banco');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-user"
-                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-conta-banco"
+                    onclick="cancelTryOut('GETapi-conta-banco');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-user" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-conta-banco" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/user</code></b>
+            <b><code>api/conta-banco</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -228,7 +265,7 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Authorization" class="auth-value"               data-endpoint="GETapi-user"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-conta-banco"
                value="Bearer {YOUR_AUTH_KEY}"
                data-component="header">
     <br>
@@ -239,7 +276,7 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-user"
+               name="Content-Type"                data-endpoint="GETapi-conta-banco"
                value="application/json"
                data-component="header">
     <br>
@@ -250,7 +287,7 @@ fetch(url, {
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-user"
+               name="Accept"                data-endpoint="GETapi-conta-banco"
                value="application/json"
                data-component="header">
     <br>
@@ -258,7 +295,714 @@ fetch(url, {
             </div>
                         </form>
 
-                <h1 id="fornecedor">fornecedor</h1>
+                    <h2 id="conta-bancaria-POSTapi-conta-banco">Criar conta bancaria</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>cria um conta bancaria conforme os dados inseridos</p>
+
+<span id="example-requests-POSTapi-conta-banco">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/conta-banco" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"banco_nome\": \"Itau\",
+    \"agencia_numero\": \"0927\",
+    \"conta_numero\": \"509428\",
+    \"saldo_inicial\": 25.28
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/conta-banco"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "banco_nome": "Itau",
+    "agencia_numero": "0927",
+    "conta_numero": "509428",
+    "saldo_inicial": 25.28
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-conta-banco">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;conta_bancaria_id&quot;: 1,
+        &quot;banco_nome&quot;: &quot;eius&quot;,
+        &quot;agencia_numero&quot;: &quot;9629&quot;,
+        &quot;conta_numero&quot;: &quot;849426&quot;,
+        &quot;saldo_inicial&quot;: 984.91,
+        &quot;created_at&quot;: &quot;2023-02-20T18:38:16.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-20T18:38:16.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-conta-banco" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-conta-banco"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-conta-banco" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-conta-banco" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-conta-banco"></code></pre>
+</span>
+<form id="form-POSTapi-conta-banco" data-method="POST"
+      data-path="api/conta-banco"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-conta-banco', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-conta-banco"
+                    onclick="tryItOut('POSTapi-conta-banco');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-conta-banco"
+                    onclick="cancelTryOut('POSTapi-conta-banco');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-conta-banco" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/conta-banco</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-conta-banco"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-conta-banco"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-conta-banco"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>banco_nome</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="banco_nome"                data-endpoint="POSTapi-conta-banco"
+               value="Itau"
+               data-component="body">
+    <br>
+<p>nome do banco. O campo value não pode ser superior a 255 caracteres. Example: <code>Itau</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>agencia_numero</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="agencia_numero"                data-endpoint="POSTapi-conta-banco"
+               value="0927"
+               data-component="body">
+    <br>
+<p>numero da agencia. O campo value não pode ser superior a 10 caracteres. Example: <code>0927</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>conta_numero</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="conta_numero"                data-endpoint="POSTapi-conta-banco"
+               value="509428"
+               data-component="body">
+    <br>
+<p>numero da conta. O campo value não pode ser superior a 10 caracteres. Example: <code>509428</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>saldo_inicial</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="saldo_inicial"                data-endpoint="POSTapi-conta-banco"
+               value="25.28"
+               data-component="body">
+    <br>
+<p>saldo inicial da conta. Example: <code>25.28</code></p>
+        </div>
+        </form>
+
+                    <h2 id="conta-bancaria-GETapi-conta-banco--id-">Retorna conta bancaria</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>retorna um conta bancaria com base no id passado</p>
+
+<span id="example-requests-GETapi-conta-banco--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/conta-banco/aut" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/conta-banco/aut"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-conta-banco--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;conta_bancaria_id&quot;: 1,
+        &quot;banco_nome&quot;: &quot;eius&quot;,
+        &quot;agencia_numero&quot;: &quot;9629&quot;,
+        &quot;conta_numero&quot;: &quot;849426&quot;,
+        &quot;saldo_inicial&quot;: 984.91,
+        &quot;created_at&quot;: &quot;2023-02-20T18:38:16.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-20T18:38:16.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-conta-banco--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-conta-banco--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-conta-banco--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-conta-banco--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-conta-banco--id-"></code></pre>
+</span>
+<form id="form-GETapi-conta-banco--id-" data-method="GET"
+      data-path="api/conta-banco/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-conta-banco--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-conta-banco--id-"
+                    onclick="tryItOut('GETapi-conta-banco--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-conta-banco--id-"
+                    onclick="cancelTryOut('GETapi-conta-banco--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-conta-banco--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/conta-banco/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-conta-banco--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-conta-banco--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-conta-banco--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="GETapi-conta-banco--id-"
+               value="aut"
+               data-component="url">
+    <br>
+<p>The ID of the conta banco. Example: <code>aut</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>conta_bancaria_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="conta_bancaria_id"                data-endpoint="GETapi-conta-banco--id-"
+               value="8"
+               data-component="url">
+    <br>
+<p>O valor do conta_bancaria_id Example: <code>8</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="conta-bancaria-PUTapi-conta-banco--id-">Atualizar conta bancaria</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Atualiza os dados de um conta bancaria conforme os dados inseridos</p>
+
+<span id="example-requests-PUTapi-conta-banco--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/conta-banco/repellendus" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"banco_nome\": \"Itau\",
+    \"agencia_numero\": \"0927\",
+    \"conta_numero\": \"509428\",
+    \"saldo_inicial\": 25.28
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/conta-banco/repellendus"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "banco_nome": "Itau",
+    "agencia_numero": "0927",
+    "conta_numero": "509428",
+    "saldo_inicial": 25.28
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-conta-banco--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;conta_bancaria_id&quot;: 1,
+        &quot;banco_nome&quot;: &quot;eius&quot;,
+        &quot;agencia_numero&quot;: &quot;9629&quot;,
+        &quot;conta_numero&quot;: &quot;849426&quot;,
+        &quot;saldo_inicial&quot;: 984.91,
+        &quot;created_at&quot;: &quot;2023-02-20T18:38:16.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2023-02-20T18:38:16.000000Z&quot;
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PUTapi-conta-banco--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-conta-banco--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-conta-banco--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-conta-banco--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-conta-banco--id-"></code></pre>
+</span>
+<form id="form-PUTapi-conta-banco--id-" data-method="PUT"
+      data-path="api/conta-banco/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-conta-banco--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-conta-banco--id-"
+                    onclick="tryItOut('PUTapi-conta-banco--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-conta-banco--id-"
+                    onclick="cancelTryOut('PUTapi-conta-banco--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-conta-banco--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/conta-banco/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/conta-banco/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="PUTapi-conta-banco--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PUTapi-conta-banco--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PUTapi-conta-banco--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="PUTapi-conta-banco--id-"
+               value="repellendus"
+               data-component="url">
+    <br>
+<p>The ID of the conta banco. Example: <code>repellendus</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>conta_bancaria_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="conta_bancaria_id"                data-endpoint="PUTapi-conta-banco--id-"
+               value="10"
+               data-component="url">
+    <br>
+<p>O valor do conta_bancaria_id Example: <code>10</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>banco_nome</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="banco_nome"                data-endpoint="PUTapi-conta-banco--id-"
+               value="Itau"
+               data-component="body">
+    <br>
+<p>nome do banco. O campo value não pode ser superior a 255 caracteres. Example: <code>Itau</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>agencia_numero</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="agencia_numero"                data-endpoint="PUTapi-conta-banco--id-"
+               value="0927"
+               data-component="body">
+    <br>
+<p>numero da agencia. O campo value não pode ser superior a 10 caracteres. Example: <code>0927</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>conta_numero</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="conta_numero"                data-endpoint="PUTapi-conta-banco--id-"
+               value="509428"
+               data-component="body">
+    <br>
+<p>numero da conta. O campo value não pode ser superior a 10 caracteres. Example: <code>509428</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>saldo_inicial</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="saldo_inicial"                data-endpoint="PUTapi-conta-banco--id-"
+               value="25.28"
+               data-component="body">
+    <br>
+<p>saldo inicial da conta. Example: <code>25.28</code></p>
+        </div>
+        </form>
+
+                    <h2 id="conta-bancaria-DELETEapi-conta-banco--id-">Excluir conta bancaria</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>exclui os dados de um conta bancaria</p>
+
+<span id="example-requests-DELETEapi-conta-banco--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/conta-banco/sit" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/conta-banco/sit"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-conta-banco--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-conta-banco--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-conta-banco--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-conta-banco--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-conta-banco--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-conta-banco--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-conta-banco--id-" data-method="DELETE"
+      data-path="api/conta-banco/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-conta-banco--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-conta-banco--id-"
+                    onclick="tryItOut('DELETEapi-conta-banco--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-conta-banco--id-"
+                    onclick="cancelTryOut('DELETEapi-conta-banco--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-conta-banco--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/conta-banco/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="DELETEapi-conta-banco--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi-conta-banco--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi-conta-banco--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="id"                data-endpoint="DELETEapi-conta-banco--id-"
+               value="sit"
+               data-component="url">
+    <br>
+<p>The ID of the conta banco. Example: <code>sit</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>conta_bancaria_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="conta_bancaria_id"                data-endpoint="DELETEapi-conta-banco--id-"
+               value="7"
+               data-component="url">
+    <br>
+<p>O valor do conta_bancaria_id Example: <code>7</code></p>
+            </div>
+                    </form>
+
+                <h1 id="fornecedor">Fornecedor</h1>
 
     
 
@@ -558,7 +1302,7 @@ fetch(url, {
                value="Fornecedor de agua"
                data-component="body">
     <br>
-<p>nome do fornecedor. Must not be greater than 255 characters. Example: <code>Fornecedor de agua</code></p>
+<p>nome do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>Fornecedor de agua</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>endereco</code></b>&nbsp;&nbsp;
@@ -569,7 +1313,7 @@ fetch(url, {
                value="rua x, numero y, bairro z"
                data-component="body">
     <br>
-<p>endereco do fornecedor. Must not be greater than 255 characters. Example: <code>rua x, numero y, bairro z</code></p>
+<p>endereco do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>rua x, numero y, bairro z</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -580,7 +1324,7 @@ fetch(url, {
                value="fornecedor@teste.com"
                data-component="body">
     <br>
-<p>email do fornecedor. Must not be greater than 255 characters. Example: <code>fornecedor@teste.com</code></p>
+<p>email do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>fornecedor@teste.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefone</code></b>&nbsp;&nbsp;
@@ -591,7 +1335,7 @@ fetch(url, {
                value="(11) 11111111111"
                data-component="body">
     <br>
-<p>telefone do fornecedor. Must not be greater than 255 characters. Example: <code>(11) 11111111111</code></p>
+<p>telefone do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>(11) 11111111111</code></p>
         </div>
         </form>
 
@@ -609,7 +1353,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/fornecedor/3" \
+    --get "http://localhost/api/fornecedor/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -617,7 +1361,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/fornecedor/3"
+    "http://localhost/api/fornecedor/1"
 );
 
 const headers = {
@@ -731,10 +1475,21 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="fornecedor_id"                data-endpoint="GETapi-fornecedor--fornecedor_id-"
-               value="3"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the fornecedor. Example: <code>3</code></p>
+<p>The ID of the fornecedor. Example: <code>1</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>fornecedor</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="fornecedor"                data-endpoint="GETapi-fornecedor--fornecedor_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>O valor do fornecedor_id Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -752,7 +1507,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/fornecedor/3" \
+    "http://localhost/api/fornecedor/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -767,7 +1522,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/fornecedor/3"
+    "http://localhost/api/fornecedor/1"
 );
 
 const headers = {
@@ -893,10 +1648,21 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="fornecedor_id"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
-               value="3"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the fornecedor. Example: <code>3</code></p>
+<p>The ID of the fornecedor. Example: <code>1</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>fornecedor</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="fornecedor"                data-endpoint="PUTapi-fornecedor--fornecedor_id-"
+               value="19"
+               data-component="url">
+    <br>
+<p>O valor do fornecedor_id Example: <code>19</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -908,7 +1674,7 @@ fetch(url, {
                value="Fornecedor de agua"
                data-component="body">
     <br>
-<p>nome do fornecedor. Must not be greater than 255 characters. Example: <code>Fornecedor de agua</code></p>
+<p>nome do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>Fornecedor de agua</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>endereco</code></b>&nbsp;&nbsp;
@@ -919,7 +1685,7 @@ fetch(url, {
                value="rua x, numero y, bairro z"
                data-component="body">
     <br>
-<p>endereco do fornecedor. Must not be greater than 255 characters. Example: <code>rua x, numero y, bairro z</code></p>
+<p>endereco do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>rua x, numero y, bairro z</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -930,7 +1696,7 @@ fetch(url, {
                value="fornecedor@teste.com"
                data-component="body">
     <br>
-<p>email do fornecedor. Must not be greater than 255 characters. Example: <code>fornecedor@teste.com</code></p>
+<p>email do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>fornecedor@teste.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>telefone</code></b>&nbsp;&nbsp;
@@ -941,7 +1707,7 @@ fetch(url, {
                value="(11) 11111111111"
                data-component="body">
     <br>
-<p>telefone do fornecedor. Must not be greater than 255 characters. Example: <code>(11) 11111111111</code></p>
+<p>telefone do fornecedor. O campo value não pode ser superior a 255 caracteres. Example: <code>(11) 11111111111</code></p>
         </div>
         </form>
 
@@ -959,7 +1725,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/fornecedor/3" \
+    "http://localhost/api/fornecedor/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -967,7 +1733,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/fornecedor/3"
+    "http://localhost/api/fornecedor/1"
 );
 
 const headers = {
@@ -1071,10 +1837,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="fornecedor_id"                data-endpoint="DELETEapi-fornecedor--fornecedor_id-"
-               value="3"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the fornecedor. Example: <code>3</code></p>
+<p>The ID of the fornecedor. Example: <code>1</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>fornecedor</code></b>&nbsp;&nbsp;
@@ -1082,12 +1848,143 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="fornecedor"                data-endpoint="DELETEapi-fornecedor--fornecedor_id-"
-               value="1"
+               value="11"
                data-component="url">
     <br>
-<p>O valor do fornecedor_id Example: <code>1</code></p>
+<p>O valor do fornecedor_id Example: <code>11</code></p>
             </div>
                     </form>
+
+                <h1 id="usuarios">Usuarios</h1>
+
+    
+
+                                <h2 id="usuarios-GETapi-user">Listagem de Usuarios</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Retorna todos os usuarios cadastrados</p>
+
+<span id="example-requests-GETapi-user">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/user" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/user"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-user">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Lucas-msf&quot;,
+    &quot;email&quot;: &quot;lucas@email.com&quot;,
+    &quot;created_at&quot;: &quot;2023-02-17T19:23:05.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2023-02-17T19:24:27.000000Z&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user"></code></pre>
+</span>
+<form id="form-GETapi-user" data-method="GET"
+      data-path="api/user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user"
+                    onclick="tryItOut('GETapi-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user"
+                    onclick="cancelTryOut('GETapi-user');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="GETapi-user"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-user"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 
